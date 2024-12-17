@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goals.View.LoginPage"
+             xmlns:local="clr-namespace:Goals"
+             Title="Login"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled"
+             BindingContext="{Binding Source={x:Static local:ViewModelLocator.LoginViewModel}}">
+
+    <StackLayout Padding="20" VerticalOptions="Center" Spacing="15">
+
+        <!-- Title -->
+        <Label Text="Welcome Back!"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <!-- Email -->
+        <Entry Placeholder="Email"
+               Text="{Binding Email, Mode=TwoWay}"
+               Keyboard="Email"
+               BackgroundColor="#F3F3F3"
+               PlaceholderColor="#999" />
+
+        <!-- Password -->
+        <Entry Placeholder="Password"
+               Text="{Binding Password, Mode=TwoWay}"
+               IsPassword="True"
+               BackgroundColor="#F3F3F3"
+               PlaceholderColor="#999" />
+
+        <!-- Login Button -->
+        <Button Text="Login"
+                BackgroundColor="#FFB100"
+                TextColor="White"
+                CornerRadius="10"
+                Command="{Binding LoginCommand}"/>
+
+        <!-- Register Navigation -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Don't have an account?" FontSize="14"/>
+            <Label Text=" Register"
+                   FontSize="14"
+                   TextColor="#FFB100"
+                   FontAttributes="Bold"
+                   GestureRecognizers="{TapGestureRecognizer Command={Binding NavigateToRegisterCommand}}"/>
+        </StackLayout>
+
+        <!-- Feedback Message -->
+        <Label Text="{Binding FeedbackMessage}"
+               TextColor="Red"
+               FontSize="14"
+               HorizontalOptions="Center"/>
+    </StackLayout>
+</ContentPage>

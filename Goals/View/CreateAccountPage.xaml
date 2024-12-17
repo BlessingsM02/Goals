@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goals.View.CreateAccountPage"
+             xmlns:local="clr-namespace:Goals"
+             Shell.FlyoutBehavior="Disabled"
+             Title="Create Account"
+             Shell.TabBarIsVisible="False"
+             BindingContext="{Binding Source={x:Static local:ViewModelLocator.CreateAccountViewModel}}">
+
+    <StackLayout Padding="20" Spacing="15" VerticalOptions="Center">
+
+        <Label Text="Create a New Account"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <!-- Account Name -->
+        <Entry Placeholder="Account Name"
+               Text="{Binding AccountName}"
+               MaxLength="20" />     
+        
+        <Entry Placeholder="Saving / Expense / Credit"
+               Text="{Binding AccountType}"
+               MaxLength="20" />
+
+        <!-- Initial Balance -->
+        <Entry Placeholder="Initial Balance"
+               Keyboard="Numeric"
+               Text="{Binding InitialBalance}" />
+
+        <!-- Create Button -->
+        <Button Text="Create Account"
+                Command="{Binding CreateAccountCommand}"
+                BackgroundColor="Green"
+                TextColor="White" />
+
+    </StackLayout>
+</ContentPage>

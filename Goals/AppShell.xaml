@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Goals.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Goals.View"
+    Title="Goals">
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage" />
+
+
+    <!-- Register Page -->
+    <ShellContent Route="RegisterPage"
+                  ContentTemplate="{DataTemplate local:RegisterPage}" />
+
+    <!-- Home Page -->
+
+    <TabBar FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate local:HomePage}"
+            Icon="home"
+            Route="HomePage" />
+
+        <ShellContent
+            Title="Plan"
+            ContentTemplate="{DataTemplate local:PlanPage}"
+            Icon="plan"
+            Route="PlanPage"/>
+
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate local:ProfilePage}"
+            Icon="profile"
+            Route="ProfilePage" />
+        <ShellContent 
+            Title="Menu"
+            ContentTemplate="{DataTemplate local:MenuPage}"
+            Icon="menu"
+            Route="MenuPage"/>
+    </TabBar>
+    
+    <ShellContent Route="CreateAccountPage" ContentTemplate="{DataTemplate local:CreateAccountPage}" />
+
+
+
+</Shell>

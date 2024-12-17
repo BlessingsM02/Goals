@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goals.View.AccountDetailsPage"
+             Title="Account Details">
+
+    <StackLayout Padding="20" Spacing="15" VerticalOptions="Start">
+
+        <!-- Title -->
+        <Label Text="Account Details"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <!-- Account Name -->
+        <Label Text="Account Name:"
+               FontSize="18"
+               FontAttributes="Bold" />
+        <Label Text="{Binding Name}"
+               FontSize="16"
+               TextColor="Gray" />
+
+        <!-- Account Type -->
+        <Label Text="Account Type:"
+               FontSize="18"
+               FontAttributes="Bold" />
+        <Label Text="{Binding Type}"
+               FontSize="16"
+               TextColor="Gray" />
+
+        <!-- Account Balance -->
+        <Label Text="Balance:"
+               FontSize="18"
+               FontAttributes="Bold" />
+        <Label Text="{Binding Balance, StringFormat='Balance: {0:C}'}"
+               FontSize="16"
+               TextColor="Gray" />
+
+    </StackLayout>
+</ContentPage>

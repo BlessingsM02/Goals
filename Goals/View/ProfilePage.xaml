@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goals.View.ProfilePage"
+             xmlns:local="clr-namespace:Goals"
+             Shell.NavBarIsVisible="False"
+             Title="Profile"
+             BindingContext="{Binding Source={x:Static local:ViewModelLocator.ProfileViewModel}}">
+
+    <StackLayout Padding="20" VerticalOptions="Center" Spacing="15">
+
+     
+
+        <!-- User Details -->
+        <Label Text="Name" FontSize="16" FontAttributes="Bold" />
+        <Label Text="{Binding CurrentUser.Name}" FontSize="16" />
+        
+        <Label Text="Email:" FontSize="16" FontAttributes="Bold" />
+        <Label Text="{Binding CurrentUser.Email}" FontSize="16" />
+        
+      
+
+        
+        
+
+        <Label Text="Joined At:" FontSize="16" FontAttributes="Bold" />
+        <Label Text="{Binding CurrentUser.CreatedDate}" FontSize="16" />
+
+        <!-- Logout Button -->
+        <Button Text="Logout"
+                BackgroundColor="Red"
+                TextColor="White"
+                Command="{Binding LogoutCommand}"/>
+
+    </StackLayout>
+</ContentPage>
