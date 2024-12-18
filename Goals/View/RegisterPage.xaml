@@ -46,7 +46,7 @@
 
             <!-- Register Button -->
             <Button Text="Register"
-                    BackgroundColor="#FFB100"
+                    BackgroundColor="CornflowerBlue"
                     TextColor="White"
                     CornerRadius="10"
                     Command="{Binding RegisterCommand}"/>
@@ -62,7 +62,7 @@
                 <Label Text="Already have an account?" FontSize="14"/>
                 <Label Text=" Login"
                        FontSize="14"
-                       TextColor="#FFB100"
+                       TextColor="CornflowerBlue"
                        FontAttributes="Bold"
                        GestureRecognizers="{TapGestureRecognizer Command={Binding NavigateToLoginCommand}}"/>
             </StackLayout>

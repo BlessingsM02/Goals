@@ -14,7 +14,7 @@
 
             <!-- Image Carousel -->
             <CarouselView HeightRequest="200" 
-                          BackgroundColor="HotPink">
+                          BackgroundColor="CornflowerBlue">
                 <CarouselView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>dotnet_bot</x:String>
@@ -74,8 +74,55 @@
             <!-- Create Account Button -->
             <Button Text="Create Account"
                     Clicked="Button_Clicked"
-                    BackgroundColor="HotPink" TextColor="Black" 
+                    BackgroundColor="CornflowerBlue" TextColor="Black" 
                     CornerRadius="10" HeightRequest="50"/>
+
+            <Grid ColumnDefinitions=".5*, .5*"
+                  ColumnSpacing="10"
+                  HeightRequest="70">
+                <Frame Grid.Column="0"
+                       Padding="10" 
+                       CornerRadius="10" 
+                       BackgroundColor="#EFEFEF" 
+                       BorderColor="Black">
+                    <VerticalStackLayout VerticalOptions="Center"
+                                         HorizontalOptions="Center">
+                        <Label Text="Budget" 
+                            FontSize="16" 
+                            FontAttributes="Bold" 
+                            TextColor="Black"
+                               VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+                      
+                    </VerticalStackLayout>
+
+                </Frame>
+                <Frame Grid.Column="1"
+                       Padding="10" 
+                       CornerRadius="10" 
+                       BackgroundColor="#EFEFEF" 
+                       BorderColor="Red">
+                    <VerticalStackLayout VerticalOptions="Center"
+                                         HorizontalOptions="Center">
+                        <Label Text="Make Plan" 
+                            FontSize="16" 
+                               VerticalOptions="Center"
+                            FontAttributes="Bold" 
+                            TextColor="Black"
+                            HorizontalOptions="Center"/>
+                      
+                    </VerticalStackLayout>
+
+                </Frame>
+                
+            </Grid>
+            
+            <Button Text="Add Record"
+                    BackgroundColor="CornflowerBlue"
+                    TextColor="Black" 
+                    CornerRadius="10" 
+                    HeightRequest="50"
+                    VerticalOptions="End"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

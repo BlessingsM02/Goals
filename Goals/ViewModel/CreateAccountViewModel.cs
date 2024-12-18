@@ -53,7 +53,8 @@ namespace Goals.ViewModel
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Account created successfully!", "OK");
                 //AccountName = string.Empty;
-               // InitialBalance = 0;
+                // InitialBalance = 0;
+                await Shell.Current.GoToAsync("//HomePage");
             }
             else
             {
