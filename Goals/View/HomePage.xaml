@@ -33,42 +33,50 @@
             <Label Text="Your Accounts" FontSize="18" FontAttributes="Bold"/>
 
             <CollectionView 
-                ItemsSource="{Binding UserAccounts}" 
-                HeightRequest="200" 
-                HorizontalScrollBarVisibility="Never" 
-                ItemSizingStrategy="MeasureFirstItem">
+    ItemsSource="{Binding UserAccounts}" 
+    SelectionMode="None">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Horizontal" Span="2"
-                                     HorizontalItemSpacing="10" 
-                                     VerticalItemSpacing="10"/>
+                         HorizontalItemSpacing="10" 
+                         VerticalItemSpacing="10"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame 
-                            Padding="10" 
-                            CornerRadius="10" 
-                            BackgroundColor="#EFEFEF" 
-                            Margin="5"  
-                            WidthRequest="150">
+                Padding="10" 
+                CornerRadius="10" 
+                BackgroundColor="#EFEFEF" 
+                Margin="5"  
+                WidthRequest="150">
+                            <!-- TapGestureRecognizer -->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:HomeViewModel}}, Path=NavigateToDetailsCommand}" 
+                        CommandParameter="{Binding}" />
+                            </Frame.GestureRecognizers>
                             <VerticalStackLayout>
                                 <Label Text="{Binding AccountName}" 
-                                    FontSize="16" 
-                                    FontAttributes="Bold" 
-                                    TextColor="Black"
-                                    HorizontalOptions="Center"/> 
+                        FontSize="16" 
+                        FontAttributes="Bold" 
+                        TextColor="Black"
+                        HorizontalOptions="Center"/>
                                 <Label Text="{Binding AccountType}" 
-                                    FontSize="12"
-                                    TextColor="Black"
-                                    HorizontalOptions="Center"/>
-                                <Label TextColor="Black" Text="{Binding Balance, StringFormat='Balance: K{0:F0}'}" 
-                           FontSize="14" 
-                           HorizontalOptions="Center"/>
-                                
+                        FontSize="12"
+                        TextColor="Black"
+                        HorizontalOptions="Center"/>
+                                <Label Text="{Binding Balance, StringFormat='Balance: K{0:F0}'}" 
+                        FontSize="14" 
+                        TextColor="Black"
+                        HorizontalOptions="Center"/>
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+
+
+
 
 
             <!-- Create Account Button -->

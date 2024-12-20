@@ -7,30 +7,61 @@
              Title="Profile"
              BindingContext="{Binding Source={x:Static local:ViewModelLocator.ProfileViewModel}}">
 
-    <StackLayout Padding="20" VerticalOptions="Center" Spacing="15">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
 
-     
+            <!-- Profile Picture Section -->
+            <Frame HeightRequest="120" WidthRequest="120"
+                   HorizontalOptions="Center"
+                   CornerRadius="60"
+                   BackgroundColor="#D9D9D9"
+                   HasShadow="True">
+                <Image Source="profile_placeholder.png" 
+                       Aspect="AspectFill" 
+                       HeightRequest="100"
+                       WidthRequest="100"/>
+            </Frame>
 
-        <!-- User Details -->
-        <Label Text="Name" FontSize="16" FontAttributes="Bold" />
-        <Label Text="{Binding CurrentUser.Name}" FontSize="16" />
-        
-        <Label Text="Email:" FontSize="16" FontAttributes="Bold" />
-        <Label Text="{Binding CurrentUser.Email}" FontSize="16" />
-        
-      
+            <!-- User Details Section -->
+            <Frame CornerRadius="10"
+                   Padding="15"
+                   BackgroundColor="#F5F5F5"
+                   HasShadow="True">
+                <Grid RowDefinitions="Auto, Auto, Auto"
+                      ColumnDefinitions="Auto, *"
+                      ColumnSpacing="10">
 
-        
-        
+                    <!-- Name -->
+                    <Label Text="Name:" Grid.Row="0" Grid.Column="0"
+                           FontSize="16" FontAttributes="Bold" />
+                    <Label Text="{Binding CurrentUser.Name}" 
+                           Grid.Row="0" Grid.Column="1"
+                           FontSize="16" />
 
-        <Label Text="Joined At:" FontSize="16" FontAttributes="Bold" />
-        <Label Text="{Binding CurrentUser.CreatedDate}" FontSize="16" />
+                    <!-- Email -->
+                    <Label Text="Email:" Grid.Row="1" Grid.Column="0"
+                           FontSize="16" FontAttributes="Bold" />
+                    <Label Text="{Binding CurrentUser.Email}" 
+                           Grid.Row="1" Grid.Column="1"
+                           FontSize="16" />
 
-        <!-- Logout Button -->
-        <Button Text="Logout"
-                BackgroundColor="Red"
-                TextColor="White"
-                Command="{Binding LogoutCommand}"/>
+                    <!-- Joined At -->
+                    <Label Text="Joined At:" Grid.Row="2" Grid.Column="0"
+                           FontSize="16" FontAttributes="Bold" />
+                    <Label Text="{Binding CurrentUser.CreatedDate, StringFormat='Date: {0:MM/dd/yyyy HH:mm}'}}" 
+                           Grid.Row="2" Grid.Column="1"
+                           FontSize="16" />
+                </Grid>
+            </Frame>
 
-    </StackLayout>
+            <!-- Logout Button -->
+            <Button Text="Logout"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    HeightRequest="50"
+                    FontSize="16"
+                    VerticalOptions="End"
+                    Command="{Binding LogoutCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

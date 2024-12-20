@@ -43,6 +43,7 @@ namespace Goals.ViewModel
             {
                 AccountName = AccountName,
                 AccountType = AccountType,
+                CreatedAt = DateTime.UtcNow,
                 Balance = InitialBalance,
                 UserId = user.Id
             };

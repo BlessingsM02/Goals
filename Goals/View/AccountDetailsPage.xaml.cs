@@ -1,12 +1,18 @@
-using Goals.Model;
+using Goals.ViewModel;
 
-namespace Goals.View;
-
-public partial class AccountDetailsPage : ContentPage
+namespace Goals.View
 {
-    public AccountDetailsPage(Account account)
+    public partial class AccountDetailsPage : ContentPage
     {
-        InitializeComponent();
-        BindingContext = account; // Pass the account data to the page
+        public AccountDetailsPage()
+        {
+            InitializeComponent();
+            BindingContext = new AccountDetailsViewModel();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//HomePage");
+        }
     }
 }

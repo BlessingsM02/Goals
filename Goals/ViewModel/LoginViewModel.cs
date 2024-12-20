@@ -30,6 +30,7 @@ namespace Goals.ViewModel
 
             LoginCommand = new AsyncRelayCommand(LoginAsync);
             NavigateToRegisterCommand = new AsyncRelayCommand(NavigateToRegisterAsync);
+            
         }
 
         private async Task LoginAsync()
