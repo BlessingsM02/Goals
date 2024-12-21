@@ -48,6 +48,8 @@ namespace Goals.Service
                                   .CountAsync();
         }
 
+
+
         public async Task<bool> CreateAccountAsync(Account account)
         {
             var count = await GetAccountCountForUserAsync(account.UserId);
@@ -59,6 +61,8 @@ namespace Goals.Service
             await _database.InsertAsync(account);
             return true;
         }
+
+
         public Task<List<Account>> GetUserAccountsAsync(int userId)
         {
             // Fetch accounts that belong to the specified UserId
