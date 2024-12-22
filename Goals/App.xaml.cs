@@ -8,7 +8,7 @@
 
             MainPage = new AppShell();
         }
-        protected override async void OnStart()
+        /*protected override async void OnStart()
         {
             var loggedInUser = await SecureStorage.GetAsync("loggedInUser");
 
@@ -22,7 +22,7 @@
                 // Navigate to Login Page
                 await Shell.Current.GoToAsync("//LoginPage");
             }
-        }
+        }*/
     }
 }
 

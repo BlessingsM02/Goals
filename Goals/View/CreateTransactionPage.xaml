@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goals.View.CreateTransactionPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.TabBarIsVisible="False"
+             xmlns:local="clr-namespace:Goals"
+             BindingContext="{Binding Source={x:Static local:ViewModelLocator.TransactionViewModel}}"
+             Title="Create Transaction">
+
+    <Grid ColumnDefinitions="1*, 1*"
+          RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+          ColumnSpacing="15"
+          RowSpacing="15"
+          Padding="20">
+
+        <!-- Account Picker -->
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Select Account:" FontSize="14" FontAttributes="Bold" />
+        <Picker Grid.Row="1" Grid.ColumnSpan="2"
+                ItemsSource="{Binding Accounts}"
+                ItemDisplayBinding="{Binding AccountName}"
+                SelectedItem="{Binding SelectedAccount}"
+                Title="Choose an account" />
+
+        <!-- Transaction Type Picker -->
+        <Label Grid.Row="2" Grid.ColumnSpan="2" Text="Transaction Type:" FontSize="14" FontAttributes="Bold" />
+        <Picker Grid.Row="3" Grid.ColumnSpan="2"
+                ItemsSource="{Binding TransactionTypes}"
+                SelectedItem="{Binding SelectedTransactionType}"
+                Title="Choose a transaction type" />
+
+        <!-- Category Picker -->
+        <Label Grid.Row="4" Grid.ColumnSpan="2" Text="Category:" FontSize="14" FontAttributes="Bold" />
+        <Picker Grid.Row="5" Grid.ColumnSpan="2"
+                ItemsSource="{Binding Categories}"
+                SelectedItem="{Binding SelectedCategory}"
+                Title="Choose a category" />
+
+        <!-- Amount Entry -->
+        <Label Grid.Row="6" Grid.Column="0" Text="Amount:" FontSize="14" FontAttributes="Bold" />
+        <Entry Grid.Row="6" Grid.Column="1"
+               Placeholder="Enter amount"
+               Keyboard="Numeric"
+               Text="{Binding Amount}" />
+
+        <!-- Description Entry -->
+        <Label Grid.Row="7" Grid.ColumnSpan="2" Text="Description:" FontSize="14" FontAttributes="Bold" />
+        <Entry Grid.Row="8" Grid.ColumnSpan="2"
+               Placeholder="Enter description"
+               Text="{Binding Description}" />
+
+        <!-- Save Button -->
+        <Button Grid.Row="9" Grid.ColumnSpan="2"
+                Text="Save Transaction"
+                Command="{Binding CreateTransactionCommand}"
+                BackgroundColor="Green"
+                TextColor="White"
+                HeightRequest="50"
+                CornerRadius="10" />
+
+    </Grid>
+</ContentPage>

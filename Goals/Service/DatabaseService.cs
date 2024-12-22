@@ -12,8 +12,10 @@ namespace Goals.Service
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<User>().Wait();
             _database.CreateTableAsync<Account>().Wait();
+            _database.CreateTableAsync<Transaction>().Wait();
         }
-
+        
+        //User
         public async Task<User> GetUserByIdAsync(int id)
         {
             return await _database.Table<User>().FirstOrDefaultAsync(u => u.Id == id);
@@ -40,15 +42,13 @@ namespace Goals.Service
         }
 
 
-
+        //account
         public async Task<int> GetAccountCountForUserAsync(int userId)
         {
             return await _database.Table<Account>()
                                   .Where(a => a.UserId == userId)
                                   .CountAsync();
         }
-
-
 
         public async Task<bool> CreateAccountAsync(Account account)
         {
@@ -62,6 +62,14 @@ namespace Goals.Service
             return true;
         }
 
+        public async Task DeleteAccountAsync(int accountId)
+        {
+            var accountToDelete = await _database.Table<Account>().Where(a => a.Id == accountId).FirstOrDefaultAsync();
+            if (accountToDelete != null)
+            {
+                await _database.DeleteAsync(accountToDelete);
+            }
+        }
 
         public Task<List<Account>> GetUserAccountsAsync(int userId)
         {
@@ -71,7 +79,27 @@ namespace Goals.Service
                             .ToListAsync();
         }
 
-
+        
+        //transaction
+        public async Task<bool> CreateTransaction(Transaction transaction)
+        {
+            await _database.InsertAsync(transaction);
+            return true;
+        }
+        public async Task UpdateAccountAsync(Account account)
+        {
+            await _database.UpdateAsync(account);
+        }
+        /*public async Task<List<Transaction>> GetTransactionsForAccount(int accountId)
+        {
+            return await _database.Table<Transaction>()
+                                   .Where(t => t.AccountId == accountId)
+                                   .ToListAsync();
+        }
+        public async Task<Account> GetAccountByIdAsync(int accountId)
+        {
+            return await _database.Table<Account>().FirstOrDefaultAsync(a => a.Id == accountId);
+        }*/
 
 
     }

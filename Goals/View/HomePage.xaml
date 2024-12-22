@@ -112,7 +112,7 @@
                        BorderColor="Red">
                     <VerticalStackLayout VerticalOptions="Center"
                                          HorizontalOptions="Center">
-                        <Label Text="Make Plan" 
+                        <Label Text="Credit" 
                             FontSize="16" 
                                VerticalOptions="Center"
                             FontAttributes="Bold" 
@@ -126,6 +126,8 @@
             </Grid>
             
             <Button Text="Add Record"
+                    x:Name="RecordButton"
+                    Clicked="RecordButton_Clicked"
                     BackgroundColor="CornflowerBlue"
                     TextColor="Black" 
                     CornerRadius="10" 

@@ -12,7 +12,8 @@ namespace Goals
         public static ProfileViewModel ProfileViewModel => new ProfileViewModel(_databaseService);
         public static CreateAccountViewModel CreateAccountViewModel => new CreateAccountViewModel(_databaseService);
         public static HomeViewModel HomeViewModel => new HomeViewModel(_databaseService);
-        //public static AccountDetailsViewModel AccountDetailsViewModel => new AccountDetailsViewModel(_databaseService);
+        public static AccountDetailsViewModel AccountDetailsViewModel => new AccountDetailsViewModel(_databaseService);
+        public static TransactionViewModel TransactionViewModel => new TransactionViewModel(_databaseService);
 
     }
 }

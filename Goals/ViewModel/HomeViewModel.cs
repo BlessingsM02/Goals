@@ -66,6 +66,11 @@ namespace Goals.ViewModel
                 Console.WriteLine($"Navigation failed: {ex.Message}");
             }
         }
+
+        internal void RefreshAccounts()
+        {
+            LoadAccounts();
+        }
     }
 
 }

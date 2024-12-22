@@ -5,7 +5,6 @@ using Goals.Service;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-
 namespace Goals.ViewModel
 {
     public partial class LoginViewModel : ObservableObject
@@ -60,6 +59,17 @@ namespace Goals.ViewModel
         private async Task NavigateToRegisterAsync()
         {
             await Shell.Current.GoToAsync("//RegisterPage");
+        }
+
+        internal async void RefreshAccounts()
+        {
+            var loggedInUser = await SecureStorage.GetAsync("loggedInUser");
+            if (!string.IsNullOrEmpty(loggedInUser))
+            {
+                // Navigate to Home Page
+                await Shell.Current.GoToAsync("//HomePage");
+            }
+            
         }
     }
 }

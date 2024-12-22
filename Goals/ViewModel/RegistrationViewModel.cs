@@ -55,7 +55,7 @@ namespace Goals.ViewModel
             var newUser = new User
             {
                 Name = Name,
-                Email = Email,
+                Email = Email.ToLower(),
                 Password = Password
                // CreatedDate = DateTime.UtcNow
             };

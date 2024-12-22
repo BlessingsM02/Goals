@@ -39,14 +39,15 @@ namespace Goals.ViewModel
                 return;
             }
 
-            var newAccount = new Account
-            {
-                AccountName = AccountName,
-                AccountType = AccountType,
-                CreatedAt = DateTime.UtcNow,
-                Balance = InitialBalance,
-                UserId = user.Id
-            };
+                var newAccount = new Account
+                {
+                    AccountName = AccountName.ToUpper(),
+                    AccountType = AccountType.ToLower(),
+                    CreatedAt = DateTime.UtcNow,
+                    Balance = InitialBalance,
+                    UserId = user.Id
+                };
+           
 
             var success = await _databaseService.CreateAccountAsync(newAccount);
 
@@ -54,7 +55,7 @@ namespace Goals.ViewModel
             {
                 await Application.Current.MainPage.DisplayAlert("Success", "Account created successfully!", "OK");
                 //AccountName = string.Empty;
-                // InitialBalance = 0;
+                //InitialBalance = 0;
                 await Shell.Current.GoToAsync("//HomePage");
             }
             else

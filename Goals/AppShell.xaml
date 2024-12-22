@@ -12,14 +12,17 @@
         Route="LoginPage" />
 
 
-    <!-- Register Page -->
+
     <ShellContent Route="RegisterPage"
                   ContentTemplate="{DataTemplate local:RegisterPage}" />
+    
+    <ShellContent Route="CreateTransactionPage"
+                  ContentTemplate="{DataTemplate local:CreateTransactionPage}" />
 
     <ShellContent Route="AccountDetailsPage" 
                   ContentTemplate="{DataTemplate local:AccountDetailsPage}" />
+    
 
-    <!-- Home Page -->
 
     <TabBar FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent
