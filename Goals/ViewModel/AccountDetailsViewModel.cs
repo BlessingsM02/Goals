@@ -20,10 +20,15 @@ namespace Goals.ViewModel
         {
             _databaseService = databaseService;
             Transactions = new ObservableCollection<Transaction>();
-           
+            //LoadData(account.Id);
         }
 
-
+        public async Task LoadData(int accountId)
+        {
+            Account = await _databaseService.GetAccountByIdAsync(accountId);
+            var transactionList = await _databaseService.GetTransactionsForAccount(Account.Id);
+            Transactions = new ObservableCollection<Transaction>(transactionList);
+        }
         public ObservableCollection<Transaction> Transactions
         {
             get => _transactions;
@@ -48,12 +53,7 @@ namespace Goals.ViewModel
              
             }
         }
-       /* public async Task LoadData(int accountId)
-        {
-            Account = await _databaseService.GetAccountByIdAsync(accountId);
-            var transactionList = await _databaseService.GetTransactionsForAccount(accountId);
-            Transactions = new ObservableCollection<Transaction>(transactionList);
-        }*/
+       
 
         /* [RelayCommand]
          private async Task EditAccount()

@@ -90,7 +90,7 @@ namespace Goals.Service
         {
             await _database.UpdateAsync(account);
         }
-        /*public async Task<List<Transaction>> GetTransactionsForAccount(int accountId)
+        public async Task<List<Transaction>> GetTransactionsForAccount(int accountId)
         {
             return await _database.Table<Transaction>()
                                    .Where(t => t.AccountId == accountId)
@@ -99,7 +99,7 @@ namespace Goals.Service
         public async Task<Account> GetAccountByIdAsync(int accountId)
         {
             return await _database.Table<Account>().FirstOrDefaultAsync(a => a.Id == accountId);
-        }*/
+        }
 
 
     }
