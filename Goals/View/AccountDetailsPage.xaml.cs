@@ -11,10 +11,17 @@ namespace Goals.View
             InitializeComponent();
            
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            await Shell.Current.GoToAsync("//HomePage");
+            base.OnAppearing();
+
+            // Trigger the ViewModel to refresh accounts
+            if (BindingContext is AccountDetailsViewModel accountDetailsViewModel)
+            {
+                accountDetailsViewModel.OnNavigatedTo(); 
+            }
         }
+
+        
     }
 }

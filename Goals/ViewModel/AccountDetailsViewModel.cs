@@ -14,55 +14,68 @@ namespace Goals.ViewModel
 
         [ObservableProperty]
         private Account account;
-        private ObservableCollection<Transaction> _transactions;
+
+        [ObservableProperty]
+        private ObservableCollection<Transaction> transactions = new();
 
         public AccountDetailsViewModel(DatabaseService databaseService)
         {
             _databaseService = databaseService;
-            Transactions = new ObservableCollection<Transaction>();
-            //LoadData(account.Id);
         }
 
-        public async Task LoadData(int accountId)
+        partial void OnAccountChanged(Account value)
         {
-            Account = await _databaseService.GetAccountByIdAsync(accountId);
-            var transactionList = await _databaseService.GetTransactionsForAccount(Account.Id);
-            Transactions = new ObservableCollection<Transaction>(transactionList);
+            if (value != null && (Account == null || Account.Id != value.Id))
+            {
+                _ = LoadDataAsync(value.Id); // Fire-and-forget
+            }
         }
-        public ObservableCollection<Transaction> Transactions
-        {
-            get => _transactions;
-            set => SetProperty(ref _transactions, value);
-        }
-        [RelayCommand]
-        private async Task DeleteAccount()
+
+        public async void OnNavigatedTo()
         {
             if (Account != null)
             {
-                bool confirmation = await Shell.Current.DisplayAlert(
-               "Delete Account",
-               "Are you sure you want to delete this account?",
-               "Yes",
-               "No");
-
-                if (confirmation)
-                {
-                    await _databaseService.DeleteAccountAsync(Account.Id);
-                    await Shell.Current.GoToAsync("///HomePage");
-                }
-             
+                await LoadDataAsync(Account.Id);
             }
         }
-       
 
-        /* [RelayCommand]
-         private async Task EditAccount()
-         {
-             // Navigate to the Edit Account page with the current account's details
-             await Shell.Current.GoToAsync($"///EditAccountPage", true, new Dictionary<string, object>
-             {
-                 { "Account", Account }
-             });
-         }*/
+        private async Task LoadDataAsync(int accountId)
+        {
+            // Fetch account and transactions asynchronously
+            var account = await _databaseService.GetAccountByIdAsync(accountId);
+            var transactionList = await _databaseService.GetTransactionsForAccount(accountId);
+
+            // Update properties on the UI thread
+            await MainThread.InvokeOnMainThreadAsync(() =>
+            {
+                Account = account;
+                Transactions = new ObservableCollection<Transaction>(transactionList);
+            });
+        }
+
+        [RelayCommand]
+        private async Task DeleteAccountAsync()
+        {
+            if (Account == null) return;
+
+            bool confirmation = await Shell.Current.DisplayAlert(
+                "Delete Account",
+                "Are you sure you want to delete this account?",
+                "Yes",
+                "No");
+
+            if (confirmation)
+            {
+                await _databaseService.DeleteAccountAsync(Account.Id);
+                await Shell.Current.GoToAsync("///HomePage");
+            }
+        }
+
+        [RelayCommand]
+        private async Task NavigateBackAsync()
+        {
+            // Navigate back to the previous page
+            await Shell.Current.GoToAsync("///HomePage");
+        }
     }
 }
