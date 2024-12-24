@@ -68,6 +68,7 @@
                Padding="10"
                BackgroundColor="White"
                HasShadow="True">
+            <ScrollView>
             <VerticalStackLayout>
                 <Label Text="Transaction Records"
                        FontSize="20"
@@ -75,7 +76,7 @@
                        TextColor="Black"
                        HorizontalOptions="Center" />
 
-                <ScrollView>
+                
                     <CollectionView ItemsSource="{Binding Transactions}"
                  SelectionMode="None">
                         <CollectionView.ItemTemplate>
@@ -103,9 +104,10 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                </ScrollView>
+               
                
             </VerticalStackLayout>
+            </ScrollView>
         </Frame>
 
         <Button     Text="Back"

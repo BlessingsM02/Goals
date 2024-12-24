@@ -16,7 +16,7 @@
                    CornerRadius="60"
                    BackgroundColor="#D9D9D9"
                    HasShadow="True">
-                <Image Source="profile_placeholder.png" 
+                <Image Source="profile" 
                        Aspect="AspectFill" 
                        HeightRequest="100"
                        WidthRequest="100"/>
