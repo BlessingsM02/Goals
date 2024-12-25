@@ -23,6 +23,9 @@
         <Entry Placeholder="Saving / Expense / Credit"
                Text="{Binding AccountType}"
                MaxLength="20" />
+        
+        <!--<Picker Title="Account Type"
+                SelectedItem="Savi"/>  -->
 
         <!-- Initial Balance -->
         <Entry Placeholder="Initial Balance"

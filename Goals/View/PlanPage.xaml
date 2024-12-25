@@ -61,6 +61,8 @@
                        HorizontalOptions="Center"
                        FontAttributes="Bold"
                        FontSize="20"/>
+                
+                <Label Text="more text here"/>
             </VerticalStackLayout>
         </Frame>
 

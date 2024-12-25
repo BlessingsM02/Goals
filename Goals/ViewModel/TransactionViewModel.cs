@@ -21,7 +21,7 @@ namespace Goals.ViewModel
         private ObservableCollection<string> transactionTypes = new ObservableCollection<string> { "Income", "Expense" };
 
         [ObservableProperty]
-        private ObservableCollection<string> categories = new ObservableCollection<string> { "Food", "Transport", "Entertainment","Income", "Others" };
+        private ObservableCollection<string> categories = new ObservableCollection<string> { "Food", "Transport", "Entertainment","Bill","Income", "School", "Rental","Others" };
 
         [ObservableProperty]
         private string selectedTransactionType;
