@@ -50,20 +50,19 @@
                 WidthRequest="150">
                             <!-- TapGestureRecognizer -->
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer 
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:HomeViewModel}}, Path=NavigateToDetailsCommand}" 
-                        CommandParameter="{Binding}" />
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:HomeViewModel}}, Path=NavigateToDetailsCommand}" 
+                                                      CommandParameter="{Binding}" />
                             </Frame.GestureRecognizers>
+                            
                             <VerticalStackLayout>
                                 <Label Text="{Binding AccountName}" 
-                        FontSize="16" 
-                        FontAttributes="Bold" 
-                        TextColor="Black"
-                        HorizontalOptions="Center"/>
+                                       FontAttributes="Bold" 
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"/>
                                 <Label Text="{Binding AccountType}" 
-                        FontSize="12"
-                        TextColor="Black"
-                        HorizontalOptions="Center"/>
+                                       FontSize="12"
+                                       TextColor="Black"
+                                       HorizontalOptions="Center"/>
                                 <Label Text="{Binding Balance, StringFormat='Balance: K{0:F0}'}" 
                         FontSize="14" 
                         TextColor="Black"

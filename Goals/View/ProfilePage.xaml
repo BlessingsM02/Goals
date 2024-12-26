@@ -33,24 +33,30 @@
 
                     <!-- Name -->
                     <Label Text="Name:" Grid.Row="0" Grid.Column="0"
-                           FontSize="16" FontAttributes="Bold" />
+                           FontSize="16" FontAttributes="Bold" 
+                           TextColor="Black"/>
                     <Label Text="{Binding CurrentUser.Name}" 
                            Grid.Row="0" Grid.Column="1"
+                           TextColor="Black"
                            FontSize="16" />
 
                     <!-- Email -->
                     <Label Text="Email:" Grid.Row="1" Grid.Column="0"
-                           FontSize="16" FontAttributes="Bold" />
+                           FontSize="16" FontAttributes="Bold"
+                           TextColor="Black"/>
                     <Label Text="{Binding CurrentUser.Email}" 
                            Grid.Row="1" Grid.Column="1"
-                           FontSize="16" />
+                           FontSize="16"
+                           TextColor="Black"/>
 
                     <!-- Joined At -->
                     <Label Text="Joined At:" Grid.Row="2" Grid.Column="0"
-                           FontSize="16" FontAttributes="Bold" />
-                    <Label Text="{Binding CurrentUser.CreatedDate, StringFormat='Date: {0:MM/dd/yyyy HH:mm}'}}" 
+                           FontSize="16" FontAttributes="Bold"
+                           TextColor="Black"/>
+                    <Label Text="{Binding CurrentUser.CreatedDate, StringFormat='Date: {0:MM/dd/yyyy HH:mm}'}" 
                            Grid.Row="2" Grid.Column="1"
-                           FontSize="16" />
+                           FontSize="16"
+                           TextColor="Black"/>
                 </Grid>
             </Frame>
 
