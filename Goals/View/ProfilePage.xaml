@@ -59,6 +59,14 @@
                            TextColor="Black"/>
                 </Grid>
             </Frame>
+            <Frame Background="#F5F5F5">
+                <Label Text="Settings"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       TextColor="Black"
+                       FontSize="18"/>
+
+            </Frame>
 
             <!-- Logout Button -->
             <Button Text="Logout"

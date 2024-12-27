@@ -2,11 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Goals.View.GoalPage"
-             Title="GoalPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             xmlns:local="clr-namespace:Goals"
+             xmlns:lo="clr-namespace:Goals.ViewModel"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             Title="Goals"
+             BindingContext="{Binding Source={x:Static local:ViewModelLocator.GoalViewModel}}">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Goals List -->
+        <Label Text="Your Goals"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <CollectionView ItemsSource="{Binding Goals}" SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BackgroundColor="#EFEFEF">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="{Binding Name}" FontSize="18" VerticalOptions="Center" />
+                            <Button Text="Details"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type lo:GoalViewModel}}, Path=NavigateToGoalDetailsCommand}"
+                                    CommandParameter="{Binding .}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Add New Goal Button -->
+        <Button Text="Add New Goal"
+                x:Name="addButton"
+                Clicked="addButton_Clicked"
+                BackgroundColor="CornflowerBlue"
+                TextColor="White" />
     </VerticalStackLayout>
 </ContentPage>

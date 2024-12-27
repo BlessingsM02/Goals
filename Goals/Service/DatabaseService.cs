@@ -13,6 +13,7 @@ namespace Goals.Service
             _database.CreateTableAsync<User>().Wait();
             _database.CreateTableAsync<Account>().Wait();
             _database.CreateTableAsync<Transaction>().Wait();
+            _database.CreateTableAsync<Goal>().Wait();
         }
         
         //User
@@ -102,5 +103,10 @@ namespace Goals.Service
         }
 
 
+        //Goal
+        public async Task SaveGoalAsync(Goal goal)
+        {
+            await _database.InsertAsync(goal);
+        }
     }
 }

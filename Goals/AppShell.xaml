@@ -22,6 +22,14 @@
     <ShellContent Route="AccountDetailsPage" 
                   ContentTemplate="{DataTemplate local:AccountDetailsPage}" />
     
+    <ShellContent Route="GoalPage" 
+                  ContentTemplate="{DataTemplate local:GoalPage}" />
+    
+    <ShellContent Title="CreateGoal" 
+              ContentTemplate="{DataTemplate local:CreateGoalPage}" 
+              Route="CreateGoalPage" />
+
+
 
 
     <TabBar FlyoutDisplayOptions="AsMultipleItems">
@@ -42,11 +50,6 @@
             ContentTemplate="{DataTemplate local:ProfilePage}"
             Icon="profile"
             Route="ProfilePage" />
-        <ShellContent 
-            Title="Menu"
-            ContentTemplate="{DataTemplate local:MenuPage}"
-            Icon="menu"
-            Route="MenuPage"/>
     </TabBar>
 
 

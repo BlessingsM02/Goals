@@ -14,6 +14,8 @@ namespace Goals
         public static HomeViewModel HomeViewModel => new HomeViewModel(_databaseService);
         public static AccountDetailsViewModel AccountDetailsViewModel => new AccountDetailsViewModel(_databaseService);
         public static TransactionViewModel TransactionViewModel => new TransactionViewModel(_databaseService);
+        public static PlanViewModel PlanViewModel => new PlanViewModel(_databaseService);
+        public static GoalViewModel GoalViewModel => new GoalViewModel(_databaseService);
 
     }
 }
