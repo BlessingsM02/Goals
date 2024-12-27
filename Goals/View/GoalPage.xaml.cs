@@ -11,4 +11,9 @@ public partial class GoalPage : ContentPage
     {
         await Navigation.PushAsync(new CreateGoalPage());
     }
+
+    private async void BackButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"///PlanPage");
+    }
 }

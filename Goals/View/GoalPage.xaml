@@ -64,10 +64,16 @@
 
             <!-- Add New Goal Button -->
             <Button Text="Add New Goal"
-            x:Name="addButton"
-            Clicked="addButton_Clicked"
-            BackgroundColor="CornflowerBlue"
-            TextColor="White" />
+                    x:Name="addButton"
+                    Clicked="addButton_Clicked"
+                    BackgroundColor="CornflowerBlue"
+                    TextColor="White" />
+            
+            <Button Text="Back"
+                    x:Name="BackButton"
+                    Clicked="BackButton_Clicked"
+                    BackgroundColor="CornflowerBlue"
+                    TextColor="White" />
         </VerticalStackLayout>
 
     </ScrollView>

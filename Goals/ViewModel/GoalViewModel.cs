@@ -90,7 +90,7 @@ namespace Goals.ViewModel
         [RelayCommand]
         public async Task Cancel()
         {
-            await Shell.Current.GoToAsync("//GoalsPage");
+            await Shell.Current.GoToAsync("//GoalPage");
         }
     }
 }

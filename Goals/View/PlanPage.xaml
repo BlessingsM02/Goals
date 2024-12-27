@@ -60,6 +60,8 @@
                        FontAttributes="Bold"
                        TextColor="Black"
                        FontSize="20" />
+
+             
             </VerticalStackLayout>
         </Frame>
 
@@ -77,6 +79,12 @@
                        FontAttributes="Bold"
                        TextColor="Black"
                        FontSize="20" />
+                <Label Text="{Binding OverallGoalPercentageText}"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="Green"
+                       FontSize="48" />
             </VerticalStackLayout>
         </Frame>
     </Grid>

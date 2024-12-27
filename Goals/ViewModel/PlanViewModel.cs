@@ -9,9 +9,15 @@ namespace Goals.ViewModel
     public partial class PlanViewModel : ObservableObject
     {
         private readonly DatabaseService _databaseService;
+        [ObservableProperty]
+        private float overallGoalProgress;
+
+        [ObservableProperty]
+        private string overallGoalPercentageText;
         public PlanViewModel(DatabaseService databaseService)
         {
             _databaseService = databaseService;
+            LoadGoalsData();
         }
 
         [RelayCommand]
@@ -37,6 +43,24 @@ namespace Goals.ViewModel
         {
             await Shell.Current.GoToAsync("//GoalPage");
             //await Navigation.PushAsync(new GoalPage());
+        }
+        private async Task LoadGoalsData()
+        {
+            var goals = await _databaseService.GetGoalsAsync();
+
+            if (goals.Any())
+            {
+                var totalGoalAmount = goals.Sum(g => g.GoalAmount);
+                var totalCurrentAmount = goals.Sum(g => g.CurrentAmount);
+
+                OverallGoalProgress = totalGoalAmount > 0 ? (float)(totalCurrentAmount / totalGoalAmount) : 0;
+                OverallGoalPercentageText = $"{(int)(OverallGoalProgress * 100)}%";
+            }
+            else
+            {
+                OverallGoalProgress = 0;
+                OverallGoalPercentageText = "0%";
+            }
         }
     }
 }
