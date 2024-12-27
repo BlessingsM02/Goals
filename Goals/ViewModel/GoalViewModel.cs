@@ -17,6 +17,8 @@ namespace Goals.ViewModel
         [ObservableProperty]
         private Goal newGoal;
 
+        [ObservableProperty]
+        private bool isLoading;
         public GoalViewModel(DatabaseService databaseService)
         {
             _databaseService = databaseService;
@@ -28,6 +30,36 @@ namespace Goals.ViewModel
                 CurrentAmount = 0,
                 IsAchieved = false
             };
+
+            LoadGoalsCommand.Execute(null);
+        }
+        [RelayCommand]
+        public async Task LoadGoals()
+        {
+            try
+            {
+                IsLoading = true;
+
+                // Clear the collection to avoid duplication
+                Goals.Clear();
+
+                // Fetch goals from the database
+                var goalsList = await _databaseService.GetGoalsAsync();
+
+                // Populate the ObservableCollection
+                foreach (var goal in goalsList)
+                {
+                    Goals.Add(goal);
+                }
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Error", $"Failed to load goals: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsLoading = false;
+            }
         }
 
         [RelayCommand]

@@ -18,5 +18,11 @@ namespace Goals.Model
         public DateTime Deadline { get; set; }
         public DateTime CreatedAT { get; set; }
         public bool IsAchieved { get; set; }
+
+        public double Progress => GoalAmount > 0 ? CurrentAmount / GoalAmount : 0;
+
+        // Computed property to display progress percentage
+        public int ProgressPercentage => (int)(Progress * 100);
+
     }
 }

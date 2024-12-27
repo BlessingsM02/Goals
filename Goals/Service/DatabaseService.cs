@@ -108,5 +108,11 @@ namespace Goals.Service
         {
             await _database.InsertAsync(goal);
         }
+
+        public async Task<List<Goal>> GetGoalsAsync()
+        {
+            return await _database.Table<Goal>().ToListAsync();
+        }
+
     }
 }
