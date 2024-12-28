@@ -84,7 +84,7 @@
                        HorizontalOptions="Center"
                        FontAttributes="Bold"
                        TextColor="Green"
-                       FontSize="48" />
+                       FontSize="49" />
             </VerticalStackLayout>
         </Frame>
     </Grid>
