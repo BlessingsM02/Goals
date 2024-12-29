@@ -45,7 +45,6 @@
                         <Frame 
                 Padding="10" 
                 CornerRadius="10" 
-                BackgroundColor="#EFEFEF" 
                 Margin="5"  
                 WidthRequest="150">
                             <!-- TapGestureRecognizer -->
@@ -56,16 +55,13 @@
                             
                             <VerticalStackLayout>
                                 <Label Text="{Binding AccountName}" 
-                                       FontAttributes="Bold" 
-                                       TextColor="Black"
+                                       FontAttributes="Bold"
                                        HorizontalOptions="Center"/>
                                 <Label Text="{Binding AccountType}" 
                                        FontSize="12"
-                                       TextColor="Black"
                                        HorizontalOptions="Center"/>
                                 <Label Text="{Binding Balance, StringFormat='Balance: K{0:F0}'}" 
                         FontSize="14" 
-                        TextColor="Black"
                         HorizontalOptions="Center"/>
                             </VerticalStackLayout>
                         </Frame>
@@ -90,14 +86,12 @@
                 <Frame Grid.Column="0"
                        Padding="10" 
                        CornerRadius="10" 
-                       BackgroundColor="#EFEFEF" 
                        BorderColor="Black">
                     <VerticalStackLayout VerticalOptions="Center"
                                          HorizontalOptions="Center">
                         <Label Text="Budget" 
                             FontSize="16" 
-                            FontAttributes="Bold" 
-                            TextColor="Black"
+                            FontAttributes="Bold"
                                VerticalOptions="Center"
                             HorizontalOptions="Center"/>
                       
@@ -106,8 +100,7 @@
                 </Frame>
                 <Frame Grid.Column="1"
                        Padding="10" 
-                       CornerRadius="10" 
-                       BackgroundColor="#EFEFEF" 
+                       CornerRadius="10"  
                        BorderColor="Red">
                     <VerticalStackLayout VerticalOptions="Center"
                                          HorizontalOptions="Center">
@@ -115,7 +108,6 @@
                             FontSize="16" 
                                VerticalOptions="Center"
                             FontAttributes="Bold" 
-                            TextColor="Black"
                             HorizontalOptions="Center"/>
                       
                     </VerticalStackLayout>

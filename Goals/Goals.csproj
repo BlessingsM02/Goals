@@ -84,6 +84,9 @@
 	  <MauiXaml Update="View\CreditPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\GoalDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\GoalPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

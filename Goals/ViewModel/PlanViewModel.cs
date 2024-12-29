@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Goals.Service;
-using Goals.View;
 
 namespace Goals.ViewModel
 {
@@ -42,7 +41,6 @@ namespace Goals.ViewModel
         private async Task NavigateToGoals()
         {
             await Shell.Current.GoToAsync("//GoalPage");
-            //await Navigation.PushAsync(new GoalPage());
         }
         private async Task LoadGoalsData()
         {

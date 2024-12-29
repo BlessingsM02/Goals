@@ -21,39 +21,43 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Margin="10" BorderColor="Gray" CornerRadius="8">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type lo:GoalViewModel}}, Path=NavigateToGoalDetailCommand}" 
+                        CommandParameter="{Binding}" />
+                            </Frame.GestureRecognizers>
                             <VerticalStackLayout Spacing="5" Padding="10">
                                 <!-- Goal Name -->
                                 <Label Text="{Binding GoalName}" 
-                       FontAttributes="Bold" 
-                       FontSize="18" 
-                       TextColor="Black" />
+                                       FontAttributes="Bold" 
+                                       FontSize="18" 
+                                       TextColor="Black" />
 
                                 <!-- Goal Amount -->
                                 <Label Text="{Binding GoalAmount, StringFormat='Goal Amount: K{0:F2}'}" 
-                       FontSize="14" 
-                       TextColor="Gray" />
+                                       FontSize="14" 
+                                       TextColor="Gray" />
 
                                 <!-- Current Amount -->
                                 <Label Text="{Binding CurrentAmount, StringFormat='Saved: K{0:F2}'}" 
-                       FontSize="14" 
-                       TextColor="Gray" />
+                                       FontSize="14" 
+                                       TextColor="Gray" />
 
                                 <!-- Deadline -->
                                 <Label Text="{Binding Deadline, StringFormat='Deadline: {0:MMMM dd, yyyy}'}" 
-                       FontSize="14" 
-                       TextColor="Gray" />
+                                       FontSize="14" 
+                                       TextColor="Gray" />
 
                                 <!-- Progress Bar -->
                                 <ProgressBar Progress="{Binding Progress}" 
-                             HeightRequest="10" 
-                             BackgroundColor="#E0E0E0" 
-                             ProgressColor="Green" />
+                                             HeightRequest="10" 
+                                             BackgroundColor="#E0E0E0" 
+                                             ProgressColor="Green" />
 
                                 <!-- Percentage Display -->
                                 <Label Text="{Binding ProgressPercentage, StringFormat='Progress: {0}%'}" 
-                       FontSize="14" 
-                       HorizontalTextAlignment="End" 
-                       TextColor="Black" />
+                                       HorizontalTextAlignment="End" 
+                                       TextColor="Black" />
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>

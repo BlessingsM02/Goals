@@ -113,6 +113,16 @@ namespace Goals.Service
         {
             return await _database.Table<Goal>().ToListAsync();
         }
+        public Task<Goal> GetGoalByIdAsync(int goalId)
+        {
+            return _database.Table<Goal>().FirstOrDefaultAsync(g => g.Id == goalId);
+        }
+
+        // Delete goal by ID
+        public Task<int> DeleteGoalAsync(int goalId)
+        {
+            return _database.Table<Goal>().DeleteAsync(g => g.Id == goalId);
+        }
 
     }
 }

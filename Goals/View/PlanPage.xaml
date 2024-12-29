@@ -66,25 +66,32 @@
         </Frame>
 
         <!-- Goals Frame -->
-        <Frame BackgroundColor="#EFEFEF"
+        <Frame 
                Grid.Row="2"
                Grid.Column="1">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding NavigateToGoalsCommand}" />
             </Frame.GestureRecognizers>
+
             <VerticalStackLayout>
                 <Label Text="Goals"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
                        FontAttributes="Bold"
-                       TextColor="Black"
                        FontSize="20" />
-                <Label Text="{Binding OverallGoalPercentageText}"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       FontAttributes="Bold"
-                       TextColor="Green"
-                       FontSize="49" />
+                <Frame Grid.Row="0" Grid.ColumnSpan="2" CornerRadius="100"
+                   BorderColor="LightGray" Padding="10" 
+                   HeightRequest="100" WidthRequest="100"
+                   HorizontalOptions="Center">
+                    <Grid>
+                        <!-- Circular Progress Bar Placeholder -->
+                        <Label Text="{Binding OverallGoalPercentageText}"
+                               FontSize="24" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center" 
+                               TextColor="Green"/>
+                    </Grid>
+                </Frame>
             </VerticalStackLayout>
         </Frame>
     </Grid>

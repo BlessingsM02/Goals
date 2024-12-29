@@ -92,5 +92,26 @@ namespace Goals.ViewModel
         {
             await Shell.Current.GoToAsync("//GoalPage");
         }
+
+      
+        [RelayCommand]
+        private async Task NavigateToGoalDetail(Goal selectedGoal)
+        {
+            if (selectedGoal == null)
+                return;
+            try
+            {
+                await Shell.Current.GoToAsync("///GoalDetailPage", true, new Dictionary<string, object>
+                {
+                    { "Goal", selectedGoal }
+                });
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine($" Error {ex}");
+                await Shell.Current.DisplayAlert("Erro", $"Massage: {ex}", "ok");
+            }
+            
+        }
     }
 }

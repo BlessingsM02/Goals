@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goals.View.GoalDetailPage"
+             Title="Goal Details"
+             Shell.NavBarIsVisible="True"
+             Shell.FlyoutBehavior="Disabled"
+             >
+    <ScrollView>
+        <Grid Padding="20" RowSpacing="15" ColumnSpacing="10"
+              RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
+              ColumnDefinitions="*, *">
+
+            <!-- Circular Progress Bar (Spans 2 Columns) -->
+            <Frame Grid.Row="0" Grid.ColumnSpan="2" CornerRadius="100"
+                   BorderColor="LightGray" Padding="10" 
+                   HeightRequest="150" WidthRequest="150"
+                   HorizontalOptions="Center">
+                <Grid>
+                    <!-- Circular Progress Bar Placeholder -->
+                    <Label Text="{Binding ProgressPercentage, StringFormat='{0}%'}"
+                           FontSize="24" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+            <!-- Goal Name -->
+            <Label Grid.Row="1" Grid.Column="0" Text="Goal Name:" 
+                   FontAttributes="Bold" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="1" 
+                   FontAttributes="Bold"
+                   Text="{Binding GoalName}" 
+                   VerticalTextAlignment="Center" />
+
+            <!-- Goal Amount -->
+            <Label Grid.Row="2" Grid.Column="0" Text="Goal Amount:" 
+                   FontAttributes="Bold" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="1" 
+                   Text="{Binding GoalAmount, StringFormat='K{0:F2}'}" 
+                   VerticalTextAlignment="Center" />
+
+            <!-- Current Amount -->
+            <Label Grid.Row="3" Grid.Column="0" Text="Saved Amount:" 
+                   FontAttributes="Bold" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="1" 
+                   Text="{Binding CurrentAmount, StringFormat='K{0:F2}'}" 
+                   VerticalTextAlignment="Center" />
+
+            <!-- Deadline -->
+            <Label Grid.Row="4" Grid.Column="0" Text="Deadline:" 
+                   FontAttributes="Bold" VerticalTextAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="1" 
+                   Text="{Binding Deadline, StringFormat='{0:MMMM dd, yyyy}'}" 
+                   VerticalTextAlignment="Center" />
+
+            <!-- Buttons Row -->
+            <Grid Grid.Row="5" Grid.ColumnSpan="2" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Edit Button -->
+                <Button Text="Edit" 
+                        Command="{Binding EditGoalCommand}"
+                        Grid.Column="0"
+                        BackgroundColor="CornflowerBlue" 
+                        TextColor="White" />
+
+                <!-- Delete Button -->
+                <Button Text="Delete" 
+                        Grid.Column="1"
+                        BackgroundColor="Red" 
+                        TextColor="White" />
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>
