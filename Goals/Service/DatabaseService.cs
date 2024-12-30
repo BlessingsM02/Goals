@@ -14,6 +14,7 @@ namespace Goals.Service
             _database.CreateTableAsync<Account>().Wait();
             _database.CreateTableAsync<Transaction>().Wait();
             _database.CreateTableAsync<Goal>().Wait();
+            _database.CreateTableAsync<Budget>().Wait();
         }
         
         //User
@@ -124,5 +125,12 @@ namespace Goals.Service
             return _database.Table<Goal>().DeleteAsync(g => g.Id == goalId);
         }
 
+
+        //Budget
+        public async Task<bool> CreateBudget(Budget budget)
+        {
+            await _database.InsertAsync(budget);
+            return true;
+        }
     }
 }

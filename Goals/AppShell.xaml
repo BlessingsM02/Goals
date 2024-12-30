@@ -28,10 +28,14 @@
     <ShellContent Title="CreateGoal" 
               ContentTemplate="{DataTemplate local:CreateGoalPage}" 
               Route="CreateGoalPage" />
+    
+    <ShellContent Title="CreateGoal" 
+              ContentTemplate="{DataTemplate local:CreateGoalPage}" 
+              Route="CreateGoalPage" />
 
-    <ShellContent Title="GoalDetail" 
-              ContentTemplate="{DataTemplate local:GoalDetailPage}" 
-              Route="GoalDetailPage" />
+    <ShellContent Title="BudgetPage" 
+              ContentTemplate="{DataTemplate local:BudgetPage}" 
+              Route="BudgetPage" />
 
 
 

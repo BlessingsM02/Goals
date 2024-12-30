@@ -1,62 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Goals.View.GoalPage"
-             xmlns:local="clr-namespace:Goals"
-             xmlns:lo="clr-namespace:Goals.ViewModel"
-             Shell.FlyoutBehavior="Disabled"
+             x:Class="Goals.View.BudgetPage"
              Shell.NavBarIsVisible="False"
-             Title="Goals"
-             BindingContext="{Binding Source={x:Static local:ViewModelLocator.GoalViewModel}}">
-
+             Shell.FlyoutBehavior="Disabled"
+             Title="BudgetPage">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
             <!-- Goals List -->
-            <Label Text="Your Goals"
-           FontSize="20"
-           FontAttributes="Bold"
-           HorizontalOptions="Center" />
+            <Label Text="Budget"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
 
             <CollectionView ItemsSource="{Binding Goals}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Margin="10" BorderColor="Gray" CornerRadius="8">
                             <Frame.GestureRecognizers>
-                                <TapGestureRecognizer 
-                        Command="{Binding Source={RelativeSource AncestorType={x:Type lo:GoalViewModel}}, Path=NavigateToGoalDetailCommand}" 
-                        CommandParameter="{Binding}" />
+                                <TapGestureRecognizer  />
                             </Frame.GestureRecognizers>
                             <VerticalStackLayout Spacing="5" Padding="10">
                                 <!-- Goal Name -->
                                 <Label Text="{Binding GoalName}" 
-                                       FontAttributes="Bold" 
-                                       FontSize="18" />
+                                   FontAttributes="Bold" 
+                                   FontSize="18" />
 
-                                <!-- Goal Amount -->
+                                <!-- Goal  Adding this so i can keep my streak alive Amount -->
                                 <Label Text="{Binding GoalAmount, StringFormat='Goal Amount: K{0:F2}'}" 
-                                       FontSize="14" 
-                                       TextColor="Gray" />
+                                   FontSize="14" 
+                                   TextColor="Gray" />
 
                                 <!-- Current Amount -->
                                 <Label Text="{Binding CurrentAmount, StringFormat='Saved: K{0:F2}'}" 
-                                       FontSize="14" 
-                                       TextColor="Gray" />
+                                   FontSize="14" 
+                                   TextColor="Gray" />
 
                                 <!-- Deadline -->
                                 <Label Text="{Binding Deadline, StringFormat='Deadline: {0:MMMM dd, yyyy}'}" 
-                                       FontSize="14" 
-                                       TextColor="Gray" />
+                                   FontSize="14" 
+                                   TextColor="Gray" />
 
                                 <!-- Progress Bar -->
                                 <ProgressBar Progress="{Binding Progress}" 
-                                             HeightRequest="10" 
-                                             BackgroundColor="#E0E0E0" 
-                                             ProgressColor="Green" />
+                                         HeightRequest="10" 
+                                         BackgroundColor="#E0E0E0" 
+                                         ProgressColor="Green" />
 
                                 <!-- Percentage Display -->
                                 <Label Text="{Binding ProgressPercentage, StringFormat='Progress: {0}%'}" 
-                                       HorizontalTextAlignment="End" 
-                                       TextColor="Black" />
+                                   HorizontalTextAlignment="End" 
+                                   TextColor="Black" />
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
@@ -66,12 +60,12 @@
 
 
             <!-- Add New Goal Button -->
-            <Button Text="Add New Goal"
+            <Button Text="Make Budget"
                     x:Name="addButton"
-                    Clicked="addButton_Clicked"
                     BackgroundColor="CornflowerBlue"
+                    Clicked="addButton_Clicked"
                     TextColor="White" />
-            
+
             <Button Text="Back"
                     x:Name="BackButton"
                     Clicked="BackButton_Clicked"
@@ -80,5 +74,4 @@
         </VerticalStackLayout>
 
     </ScrollView>
-    
 </ContentPage>

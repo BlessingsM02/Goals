@@ -28,7 +28,7 @@ namespace Goals.ViewModel
         [RelayCommand]
         private async Task NavigateToBudget()
         {
-            //await Shell.Current.GoToAsync("//BudgetPage");
+            await Shell.Current.GoToAsync("//BudgetPage");
         }
 
         [RelayCommand]
