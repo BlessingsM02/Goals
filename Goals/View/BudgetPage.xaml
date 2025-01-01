@@ -27,7 +27,8 @@
                                    FontSize="18" />
 
                                 <!-- Goal  Adding this so i can keep my streak al
-                                more stuff ve Amount -->
+                                more stuff ve Amount 
+                                broo???-->
                                 <Label Text="{Binding GoalAmount, StringFormat='Goal Amount: K{0:F2}'}" 
                                    FontSize="14" 
                                    TextColor="Gray" />
