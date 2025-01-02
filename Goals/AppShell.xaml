@@ -25,9 +25,9 @@
     <ShellContent Route="GoalPage" 
                   ContentTemplate="{DataTemplate local:GoalPage}" />
     
-    <ShellContent Title="CreateGoal" 
-              ContentTemplate="{DataTemplate local:CreateGoalPage}" 
-              Route="CreateGoalPage" />
+    <ShellContent Title="GoalDetailPage" 
+              ContentTemplate="{DataTemplate local:GoalDetailPage}" 
+              Route="GoalDetailPage" />
     
     <ShellContent Title="CreateGoal" 
               ContentTemplate="{DataTemplate local:CreateGoalPage}" 
