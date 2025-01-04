@@ -32,7 +32,7 @@
                                        FontAttributes="Bold" 
                                        FontSize="18" />
 
-                                <!-- Goal dsfdsf Amount -->
+                                <!-- Goal  Amount -->
                                 <Label Text="{Binding GoalAmount, StringFormat='Goal Amount: K{0:F2}'}" 
                                        FontSize="14" 
                                        TextColor="Gray" />
