@@ -65,7 +65,7 @@
 
 
 
-            <!-- Add New Goal Button -->
+            <!-- Add New Goal Bfgdgutton -->
             <Button Text="Add New Goal"
                     x:Name="addButton"
                     Clicked="addButton_Clicked"
