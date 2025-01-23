@@ -29,5 +29,10 @@ The **Goals Tracker App** is a personal finance and planning tool built with .NE
 - **Data Binding**: Used extensively for dynamic and responsive UI updates.
 
 ## Screenshots
+![Goal Screenshot](./Goals/Resources/Images/image.jpg)
+![Goal Screenshot](./Goals/Resources/Images/image_a.jpg)
+![Goal Screenshot](./Goals/Resources/Images/image_b.jpg)
+
+
 
 
